@@ -1,13 +1,14 @@
+// Package filejson package parses and stringifies json files.
 package filejson
 
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"os"
 )
 
-/** Example model struct to hold JSON data. You won't use this in your actual program. */
+// Entry model struct to hold JSON data. You won't use this in your actual program
 type Entry struct {
 	ID       string `json:"id"`
 	Name     string `json:"name"`
@@ -35,8 +36,14 @@ func ReadFromJsonFile(name string) ([]Entry, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to open file %s with error: %v", name, err)
 	}
-	defer jsonFile.Close()
-	bytes, err := ioutil.ReadAll(jsonFile)
+
+	defer func() {
+		if err := jsonFile.Close(); err != nil {
+			fmt.Printf("Error closing file: %s\n", err)
+		}
+	}()
+
+	bytes, err := io.ReadAll(jsonFile)
 	if err != nil {
 		return nil, fmt.Errorf("failed to read file at %s with error %v", name, err)
 	}

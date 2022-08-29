@@ -1,3 +1,4 @@
+// Exempla package
 package main
 
 import (
@@ -25,8 +26,8 @@ func main() {
 		if err != nil {
 			fmt.Printf("failed to convert %v into json string with error: %v\n", entry, err)
 			os.Exit(1)
-		} else {
-			fmt.Println(str)
 		}
+
+		fmt.Println(str)
 	}
 }
