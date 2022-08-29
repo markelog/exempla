@@ -1,3 +1,3 @@
-module exempla
+module github.com/markelog/exempla
 
-go 1.18
+go 1.19

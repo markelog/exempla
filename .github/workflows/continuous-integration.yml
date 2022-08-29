@@ -1,4 +1,4 @@
-name: test
+name: Continuous Integration
 
 on:
   push:
@@ -8,13 +8,13 @@ on:
 
 jobs:
   build:
-    name: check
+    name: Test
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Go 1.13
+      - name: Set up Go 1.19
         uses: actions/setup-go@v1
         with:
-          go-version: 1.13
+          go-version: 1.19
         id: go
 
       - name: Check out code into the Go module directory

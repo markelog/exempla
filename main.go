@@ -8,14 +8,6 @@ import (
 	"github.com/markelog/exempla/filejson"
 )
 
-/**
- * Main entry-point for the CSS coding challenge.
- *
- * This scaffolding is meant as an example on how to get started on the coding challenge. You can
- * choose to use however much of this scaffolding as you want and are free to modify all of it or
- * create their own. The libraries used by the scaffolding are only for illustrative purposes and
- * you can use whatever libraries you find useful.
- */
 func main() {
 	f := flag.String("f", "css_example.json", "The path to the input json file")
 	flag.Parse()
