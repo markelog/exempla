@@ -1,6 +1,11 @@
 GO_FILES ?= ./...
 GO = GO111MODULE=on go
 
+build:
+	@echo "[+] build"
+	$(GO) build -v $(GO_FILES)
+.PHONY: build
+
 install:
 	@echo "[+] install"
 	$(GO) get -v -t $(GO_FILES)
